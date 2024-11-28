@@ -1,0 +1,97 @@
+$primary-color: #26ac18;
+$secondary-color: #027c2f;
+$text-color: #ffffff;
+$disabled-color: #95a5a6;
+
+@mixin button-style($bg-color, $text-color) {
+  background-color: $bg-color;
+  color: $text-color;
+  border: none;
+  border-radius: 5px;
+  padding: 10px;
+  font-size: 16px;
+  cursor: pointer;
+  text-align: center;
+  transition: background-color 0.3s ease;
+
+  &:hover {
+    background-color: darken($bg-color, 10%);
+  }
+
+  &:disabled {
+    background-color: $disabled-color;
+    cursor: not-allowed;
+  }
+}
+
+body {
+  font-family: Inria Sans;
+  text-align: center;
+  background-color: #f8f9fa;
+}
+
+.game-container {
+  margin: 20px auto;
+  width: 60%;
+  border: 1px solid $primary-color;
+  border-radius: 10px;
+  padding: 20px;
+  background-color: white;
+}
+
+h1 {
+  color: $primary-color;
+  font-size: 40px;
+}
+
+.keyboard {
+
+  display: flex;
+  gap: 5px;
+  margin-top: 40px;
+  flex-wrap: wrap;
+  justify-content: center;
+}
+
+.key-button {
+  @include button-style($secondary-color, $text-color);
+  width: 45px;
+  height: 45px;
+  margin: 5px;
+  padding: 1px;
+
+}
+
+#hangmanImage {
+  width: 80%;
+  max-width: 300px;
+  margin: 35px auto 30px auto;
+
+  img {
+    max-width: 100%;
+    height: auto;
+    display: block;
+    margin: 0 auto;
+  }
+}
+
+#playAgainButton {
+  display: block;            
+  margin: 20px auto 0 auto; 
+  border-radius: 5px;
+  font-size: 20px;
+  padding: 15px;
+  background-color: $primary-color;
+  color: white;
+  cursor: pointer;
+}
+
+#hint {
+  margin-top: 40px;
+  opacity: 0.5;
+}
+
+#wordDisplay {
+  margin-top: 20px;
+  font-size: 35px;
+}
